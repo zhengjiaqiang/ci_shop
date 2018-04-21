@@ -1,0 +1,66 @@
+
+<!-- $Id: privilege_info.htm 16616 2009-08-27 01:56:35Z liuhui $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ECSHOP 管理中心 - 添加管理员 </title>
+    <!--引入样式-->
+    <base href="<?=base_url().'public/admin/'?>">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/transport.js"></script><script type="text/javascript" src="js/common.js"></script>
+    <style>
+        .panel-icloud .panel-right iframe {
+            height: 300px;
+            margin-top: 15px;
+        }
+        .panel-hint{
+            top: 3%;
+        }
+    </style>
+
+</head>
+<body>
+<!--遮罩-->
+<div class="mask-black" id="CMask"></div>
+<!--遮罩-->
+<h1>
+    <span class="action-span"><a href="<?=site_url('admin/admin/show')?>">管理员列表</a></span>
+    <span class="action-span1"><a href="">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> &nbsp;&nbsp;&nbsp;&nbsp; 添加管理员 </span>
+    <div style="clear:both"></div>
+</h1><div class="main-div">
+    <form name="theForm" method="post" enctype="multipart/form-data" action="<?=site_url('admin/admin/add')?>">
+        <table width="100%">
+            <tr>
+                <td class="label">用户名</td>
+                <td>
+                    <input type="text" name="admin_name" maxlength="20" value="" size="34"/><span class="require-field">*</span></td>
+            </tr>
+            <tr>
+                <td class="label">密  码</td>
+                <td>
+                    <input type="password" name="password" maxlength="32" size="34" /><span class="require-field">*</span></td>
+            </tr>
+            <tr>
+                <td class="label">用户所属角色</td>
+                <td>
+                    <select name="role_id" id="">
+                        <?php foreach($role_list as $k=>$v) :?>
+                        <option value="<?=$v['role_id']?>"><?=$v['role_name']?></option>
+                        <?php endforeach ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value=" 确定 " class="button" />&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value=" 重置 " class="button" />
+                  </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

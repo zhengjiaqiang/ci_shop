@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ECSHOP 管理中心 - 管理员列表 </title>
+    <!--引入样式-->
+    <base href="<?=base_url().'public/admin/'?>">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="styles/main.css" rel="stylesheet" type="text/css" />
+    <style>
+        .panel-icloud .panel-right iframe {
+            height: 300px;
+            margin-top: 15px;
+        }
+        .panel-hint{
+            top: 3%;
+        }
+    </style>
+
+</head>
+<body>
+<!--遮罩-->
+<div class="mask-black" id="CMask"></div>
+<!--遮罩-->
+<h1>
+    <span class="action-span"><a href="<?=site_url('admin/admin/add')?>">添加管理员</a></span>
+    <span class="action-span1"><a href="">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> &nbsp;&nbsp;&nbsp;&nbsp; 管理员列表 </span>
+    <div style="clear:both"></div>
+</h1>
+<div class="list-div" id="listDiv">
+
+    <table cellspacing='1' cellpadding='3' id='list-table'>
+        <tr>
+            <th>用户名</th>
+            <th>Email地址</th>
+            <th>加入时间</th>
+            <th>最后登录时间</th>
+            <th>操作</th>
+        </tr>
+        <?php foreach($admin_list as $k=>$v) :?>
+        <tr>
+            <td class="first-cell" ><?=$v['admin_name']?></td>
+            <td align="left">2719956702@qq.com</td>
+            <td align="center">2018-03-14 17:26:16</td>
+            <td align="center">N/A</td>
+            <td align="center">
+                <a href="privilege.php?act=allot&id=2&user=88171101840671" title="分派权限"><img src="images/icon_priv.gif" border="0" height="16" width="16"></a>&nbsp;&nbsp;
+                <a href="admin_logs.php?act=list&id=2" title="查看日志"><img src="images/icon_view.gif" border="0" height="16" width="16"></a>&nbsp;&nbsp;
+                <a href="privilege.php?act=edit&id=2" title="编辑"><img src="images/icon_edit.gif" border="0" height="16" width="16"></a>&nbsp;&nbsp;
+                <a href="javascript:;" onclick="listTable.remove(2, '您确认要删除这条记录吗?')" title="移除"><img src="images/icon_drop.gif" border="0" height="16" width="16"></a></td>
+        </tr>
+        <?php endforeach ?>
+    </table>
+</div>
+</body>
+</html>
